@@ -16,4 +16,5 @@ info = 'Data from gasnow.org\n' \
 gp = '`ETH price:  {} USD\n\n' \
      'Fast:       {}  (1 min)\n' \
      'Average:    {}  (3 min)\n' \
-     'Slow:       {}  (>10 min)`\n'
+     'Slow:       {}  (>10 min)`\n\n'\
+     'Sponsored by: {}'

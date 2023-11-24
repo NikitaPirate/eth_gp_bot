@@ -4,6 +4,7 @@ from tg.bot import bot
 import logging
 import time
 from telegram.error import Unauthorized
+from config import SPONSORED_BY
 
 
 def send_message(tg_id, text):
@@ -38,7 +39,8 @@ def notice_sender(gp_data):
             for notice in ready_notices:
                 try:
                     notice_id, gp, tg_id, gp_type = notice.id, notice.gp, notice.user.tg_id, notice.type
-                    text = f'{gp_type.name} {gp} completed. Current {gp_type.name}: {gp_now[gp_type.name]}'
+                    text = (f'{gp_type.name} {gp} completed. Current {gp_type.name}: {gp_now[gp_type.name]} \n'
+                            f'sponsored by: {SPONSORED_BY}')
                     res = send_message(tg_id, text)
                     if res:
                         delete_notice(notice_id)
