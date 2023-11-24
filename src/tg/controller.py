@@ -25,7 +25,7 @@ class Controller:
             gp_now = self.gp_data[gp_type]
             if not crud.is_user_exists(tg_id):
                 crud.create_user(tg_id)
-            if gp + 4.9 >= gp_now:
+            if gp + 1 >= gp_now:
                 return False, 'Notice gas price close to current price.'
             elif crud.is_user_has_close_notices(tg_id, gp, gp_type):
                 return False, 'You have similar notice.'

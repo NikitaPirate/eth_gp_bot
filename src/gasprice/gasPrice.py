@@ -35,10 +35,9 @@ class GP:
     @staticmethod
     def __get_eth_price():
         eth_price = \
-            requests.get('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd').json()[
-                'ethereum'][
-                'usd']
-        return float(eth_price)
+            requests.get('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd').json()
+        print(eth_price)
+        return float(eth_price['ethereum']['usd'])
 
     def __init__(self):
         self.eth_price = None
@@ -53,14 +52,16 @@ class GP:
             try:
                 eth_price = GP.__get_eth_price()
             except:
-                pass
+                print("price issues")
+                time.sleep(5)
         self.eth_price = eth_price
 
         while not gp_data:
             try:
                 gp_data = GP.__get_gp()
             except:
-                pass
+                print("gp issues")
+                time.sleep(5)
 
         self.gp_state = gp_data
 
