@@ -3,7 +3,7 @@ from tg import utilities
 import db.crud as crud
 from tg.keyboards import create_user_notices_keyboard
 
-from config import SPONSORED_BY
+from config import SPONSORED_BY_MD
 
 
 class Controller:
@@ -14,7 +14,7 @@ class Controller:
     def get_gas_price(self, update):
         gp = self.gp_data
         eth_price = self.eth_price
-        text = texts.gp.format(eth_price.data,  gp['fast'], gp['average'], gp['slow'], SPONSORED_BY)
+        text = texts.gp.format(eth_price.data, gp['fast'], gp['average'], gp['slow'], SPONSORED_BY_MD)
         tg_id = update.effective_chat.id
         if not crud.is_user_exists(tg_id):
             crud.create_user(tg_id)
