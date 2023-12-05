@@ -39,7 +39,7 @@ def notice_sender(gp_data):
             for notice in ready_notices:
                 try:
                     notice_id, gp, tg_id, gp_type = notice.id, notice.gp, notice.user.tg_id, notice.type
-                    text = (f'{gp_type.name} {gp} completed. Current {gp_type.name}: {gp_now[gp_type.name]} \n'
+                    text = (f'{gp_type.name} {gp} completed. Current {gp_type.name}: {gp_now[gp_type.name]} \n\n'
                             f'sponsored by: {SPONSORED_BY}')
                     res = send_message(tg_id, text)
                     if res:
